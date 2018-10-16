@@ -11,7 +11,7 @@ language: php
 #   directories:
 #   - cache
 
-dist: xenial #16.04
+dist: xenial # 16.04
 # dist: trusty # 14.04
 
 # addons:

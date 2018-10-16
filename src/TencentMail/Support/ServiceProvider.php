@@ -38,12 +38,13 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
         // $this->loadMigrationsFrom(__DIR__.'/path/to/migrations');
         // $this->loadTranslationsFrom(__DIR__.'/path/to/translations', 'courier');
-        $this->app->singleton(TencentMail::class, function ($app) {
+        $this->app->singleton('tencent-mail', function ($app) {
             $default_app = config('tencent-mail.default', 'default');
+
             return $this->connection($default_app);
         });
 
-        $this->app->alias(TencentMail::class, 'tencentMail');
+        $this->app->alias('tencentMail', TencentMail::class);
         //        $this->app->bind(TencentMail::class, function () {
         //            return ;
         //        });
@@ -64,11 +65,11 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         // $this->publishes([
         //    __DIR__.'/path/to/views' => resource_path('views/vendor/courier'),
         // ]);
-//        if ($this->app->runningInConsole()) {
-//            $this->commands([
-//                Console\ExampleCommand::class,
-//            ]);
-//        }
+        // if ($this->app->runningInConsole()) {
+        //    $this->commands([
+        //        Console\ExampleCommand::class,
+        //    ]);
+        // }
         // $this->publishes([
         //     __DIR__.'/path/to/assets' => public_path('vendor/courier'),
         // ], 'public');
@@ -91,6 +92,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function provides()
     {
-        return [TencentMail::class];
+        return ['tencent-mail'];
     }
 }
