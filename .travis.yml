@@ -105,7 +105,7 @@ deploy:
   skip-cleanup: true
   local-dir: build
   github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-  keep-history: true
+  keep-history: flase
   on:
     branch: master
 
